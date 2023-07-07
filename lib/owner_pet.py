@@ -1,10 +1,12 @@
+import ipdb
+
 class Pet:
     PET_TYPES = ["dog", "cat", "rodent", "bird", "reptile", "exotic"]
     all = []
 
-    def __init__(self, name, pet_type, owner):
-        self.name =name
-        self.type = pet_type
+    def __init__(self, name, pet_type, owner=''):
+        self.name = name
+        self.pet_type = pet_type
         self.owner = owner
         Pet.all.append(self)
 
@@ -13,8 +15,7 @@ class Pet:
     
     def set_type(self, pet_type):
         if pet_type in Pet.PET_TYPES:
-            self.type = pet_type
-            Pet.all.append(self._pet_type)
+            self._pet_type = pet_type
         else: 
             raise Exception("Not a valid type of pet.")
 
@@ -39,7 +40,8 @@ class Owner:
         return [pet for pet in Pet.all if pet.owner == self]
 
     def add_pet(self, pet):
-        if pet == Pet:
+        # if type(pet) == Pet:
+        if isinstance(pet, Pet):
             pet.owner = self
         else: 
             raise Exception("Not a valid type of pet.")
@@ -49,3 +51,5 @@ class Owner:
     
 owner = Owner("Jim")
 pet = Pet("Clifford", "dog", owner)
+
+ipdb.set_trace()
