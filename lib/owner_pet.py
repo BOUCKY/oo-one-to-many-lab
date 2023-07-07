@@ -1,7 +1,5 @@
-import ipdb
-
 class Pet:
-    
+
     PET_TYPES = ["dog", "cat", "rodent", "bird", "reptile", "exotic"]
     all = []
 
@@ -52,5 +50,3 @@ class Owner:
     
 owner = Owner("Jim")
 pet = Pet("Clifford", "dog", owner)
-
-ipdb.set_trace()
